@@ -1,0 +1,40 @@
+<form class="container" [formGroup]="ueserForm" (ngSubmit)="submit()">
+    <div class="form-group">
+        <label for="firstName">First Name:</label>
+        <input class="form-control" type="text" name="firstName" id="firstName" formControlName="firstName">
+        <div style="color: red;">{{showFirstNameErrors()}}</div>
+    </div>
+    <div class="form-group">
+        <label for="lastName">Last Name:</label>
+        <input class="form-control" type="text" name="lastName" id="lastName" formControlName="lastName">
+        <div style="color: red;">{{showLastNameErrors()}}</div>
+    </div>
+    <div class="form-group">
+        <label for="age">Age:</label>
+        <input class="form-control" type="text" name="age" id="age" formControlName="age">
+        <div style="color: red;">{{showAgeErrors()}}</div>
+    </div>
+    <div class="form-group">
+        <label for="email">Email:</label>
+        <input class="form-control" type="email" name="email" id="email" formControlName="email">
+        <div style="color: red;">{{showEmailErrors()}}</div>
+    </div>
+    <div class="form-group">
+        <h5>Address:</h5>
+        <div class="form-group" formGroupName="address">
+            <label for="address1">Address 1:</label>
+            <input class="form-control" type="text" name="address1" id="address1" formControlName="address1">
+            <label for="address2">Address 2:</label>
+            <input class="form-control" type="text" name="address2" id="address2" formControlName="address2">
+            <label for="state">state:</label>
+            <input class="form-control" type="text" name="state" id="state" formControlName="state">
+        </div>
+    </div>
+
+    <button [disabled] = "ueserForm.invalid" type="submit" (click)="submit()" class="btn btn-success">
+        Submit
+    </button>
+    <button class="btn btn-warning" (click)="setFirstName()">
+        Set First Name
+    </button>
+</form>
